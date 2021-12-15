@@ -4,12 +4,17 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+
+import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
     public DrawerLayout drawerLayout;
+    public NavigationView navigationView;
     public ActionBarDrawerToggle actionBarDrawerToggle;
 
     @Override
@@ -32,6 +37,16 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == R.id.nav_about) {
+            // placeholder for intent to about page
+        } else if (id == R.id.nav_coordinates) {
+            // placeholder for intent to coordinates page
+        } else if (id == R.id.nav_favourites) {
+            // placeholder for intent to favourites page
+        }
 
         if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
             return true;
