@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">NasaEarthImageryDatabase</string>
+    <string name="app_name">Nasa Earth Imagery Database V 0.1</string>
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
 </resources>
