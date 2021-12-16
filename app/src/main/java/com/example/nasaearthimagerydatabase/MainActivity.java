@@ -8,10 +8,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ListView;
 
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
+
 
     public DrawerLayout drawerLayout;
     public NavigationView navigationView;
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         //drawer toggle open/close
         drawerLayout = findViewById(R.id.my_drawer_layout);
@@ -38,14 +41,23 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        int id = item.getItemId();
 
-        if (id == R.id.nav_about) {
-            // placeholder for intent to about page
-        } else if (id == R.id.nav_coordinates) {
-            // placeholder for intent to coordinates page
-        } else if (id == R.id.nav_favourites) {
-            // placeholder for intent to favourites page
+        switch (item.getItemId()) {
+
+            case R.id.nav_about:
+                Intent intent_about = new Intent (this, nav_about.class);
+                startActivity(intent_about);
+                return true;
+
+            case R.id.nav_coordinates:
+                Intent intent_coordinates = new Intent (this, nav_coordinates.class);
+                startActivity(intent_coordinates);
+                return true;
+
+            case R.id.nav_favourites:
+                Intent intent_favourites = new Intent (this, nav_favourites.class);
+                startActivity(intent_favourites);
+                return true;
         }
 
         if (actionBarDrawerToggle.onOptionsItemSelected(item)) {

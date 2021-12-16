@@ -18,6 +18,11 @@
             app2:contentInsetLeft="0dp"
             app2:contentInsetRight="0dp"
             app2:contentInsetStart="0dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="COORDINATES">
+            </TextView>
 
         </com.google.android.material.appbar.AppBarLayout>
 

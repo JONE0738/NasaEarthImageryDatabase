@@ -20,6 +20,10 @@
             app2:contentInsetStart="0dp">
 
         </com.google.android.material.appbar.AppBarLayout>
+    <ListView
+        android:id="@+id/fav_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     </LinearLayout>
 
