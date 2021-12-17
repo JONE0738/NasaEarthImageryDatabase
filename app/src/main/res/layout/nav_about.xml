@@ -34,7 +34,13 @@
 
 
         </com.google.android.material.appbar.AppBarLayout>
-
+        <ImageButton
+            android:id="@+id/about_help"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="363dp"
+            android:onClick="aboutHelpDialog"
+            android:background="@drawable/question"/>
 
         <Button
             android:id="@+id/jones"
@@ -44,17 +50,6 @@
             android:layout_column="0"
             android:textAlignment="center"
             android:text="@string/jones" />
-
-        <ImageButton
-            android:id="@+id/about_help"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="349dp"
-            android:onClick="aboutHelpDialog"
-            android:background="@drawable/question"/>
-
-
-
 
         <Button
             android:id="@+id/barton"
