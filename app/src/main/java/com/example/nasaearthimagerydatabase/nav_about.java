@@ -81,13 +81,6 @@ public class nav_about extends AppCompatActivity {
 
 
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.nav_about:
-
-                Intent intent = new Intent(this, nav_about.class);
-                startActivity(intent);
-                return true;
-        }
             //make items appear in nav drawer
         if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
             return true;

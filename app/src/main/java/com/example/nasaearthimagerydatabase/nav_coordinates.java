@@ -41,13 +41,7 @@ public class nav_coordinates extends AppCompatActivity {
     }
 
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.nav_favourites:
 
-                Intent intent = new Intent(this, nav_coordinates.class);
-                startActivity(intent);
-                return true;
-        }
         //make items appear in nav drawer
         if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
             return true;
