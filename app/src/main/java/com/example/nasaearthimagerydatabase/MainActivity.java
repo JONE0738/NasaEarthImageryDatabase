@@ -8,7 +8,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
+
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -24,6 +27,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+  //    Search button for nav_coordinates.xml
+        Button btn = (Button)findViewById(R.id.search);
+
+
+
+
 
         //drawer toggle open/close
         drawerLayout = findViewById(R.id.my_drawer_layout);
@@ -38,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @Override
+    @Override/*
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
 
@@ -57,6 +66,21 @@ public class MainActivity extends AppCompatActivity {
             case R.id.nav_favourites:
                 Intent intent_favourites = new Intent (this, nav_favourites.class);
                 startActivity(intent_favourites);
+                return true;
+        }
+
+        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }*/
+
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.nav_about:
+
+                Intent intent = new Intent(this, nav_about.class);
+                startActivity(intent);
                 return true;
         }
 

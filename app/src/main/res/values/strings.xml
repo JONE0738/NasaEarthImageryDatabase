@@ -2,4 +2,12 @@
     <string name="app_name">Nasa Earth Imagery Database V 0.1</string>
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
+    <string name="findimage">Find Image</string>
+    <string name="favourites">Favourites</string>
+    <string name="about">About</string>
+    <string name="edit_coord1">Enter X Axis</string>
+    <string name="edit_coord2">Enter Y Axis</string>
+    <string name="search">Search</string>
+    <string name="coordinates">Enter coordinates</string>
+    <string name="aboutus">About Us</string>
 </resources>

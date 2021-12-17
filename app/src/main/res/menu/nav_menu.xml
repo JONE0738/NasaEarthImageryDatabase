@@ -6,14 +6,14 @@
 
     <item
         android:id="@+id/nav_coordinates"
-        android:title="Find Images" />
+        android:title="@string/findimage" />
 
     <item
         android:id="@+id/nav_favourites"
-        android:title="Favourites" />
+        android:title="@string/favourites" />
 
     <item
         android:id="@+id/nav_about"
-        android:title="About" />
+        android:title="@string/about" />
 
 </menu>
