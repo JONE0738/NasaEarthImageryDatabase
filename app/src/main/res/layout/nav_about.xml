@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:app2="http://schemas.Android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_drawer_layout_about"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app2="http://schemas.Android.com/apk/res-auto">
+    tools:context=".nav_about"
+    tools:ignore="HardcodedText">
 
     <GridLayout
         android:orientation="vertical"
@@ -26,12 +31,27 @@
 
             </TextView>
 
+
         </com.google.android.material.appbar.AppBarLayout>
+
+        <ImageButton
+            android:id="@+id/about_help"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="349dp"
+            android:onClick="aboutHelpDialog"
+            android:background="@drawable/question"/>
+
 
 
 
 
 
     </GridLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/nav_menu" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

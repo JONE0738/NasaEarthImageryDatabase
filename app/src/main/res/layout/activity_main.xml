@@ -24,6 +24,14 @@
             app2:contentInsetRight="0dp"
             app2:contentInsetStart="0dp">
 
+            <ImageButton
+                android:id="@+id/main_help"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="349dp"
+                android:onClick="mainHelpDialog"
+                android:background="@drawable/question"/>
+
         </com.google.android.material.appbar.AppBarLayout>
 
     </LinearLayout>
