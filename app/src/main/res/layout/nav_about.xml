@@ -4,23 +4,34 @@
     android:layout_height="match_parent"
     xmlns:app2="http://schemas.Android.com/apk/res-auto">
 
-    <LinearLayout
+    <GridLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        android:text
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/toolbar"
+
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:minHeight="?attr/actionBarSize"
-            app2:contentInsetEnd="0dp"
-            app2:contentInsetLeft="0dp"
-            app2:contentInsetRight="0dp"
-            app2:contentInsetStart="0dp">
+            android:minHeight="?attr/actionBarSize">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/aboutus"
+                android:textAlignment="center"
+                android:textSize="50dp">
+
+            </TextView>
 
         </com.google.android.material.appbar.AppBarLayout>
 
-    </LinearLayout>
+
+
+
+
+    </GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

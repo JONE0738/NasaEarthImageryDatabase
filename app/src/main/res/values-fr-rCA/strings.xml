@@ -3,6 +3,12 @@
     <string name="app_name">Base de données d\'imagerie terrestre de la NASA V 0.1</string>
     <string name="nav_open">Ouvert</string>
     <string name="nav_close">Fermer</string>
-
-
+    <string name="findimage">Trouver une image</string>
+    <string name="favourites">Favoris</string>
+    <string name="about">Sur</string>
+    <string name="edit_coord1">entrer l\'axe X</string>
+    <string name="edit_coord2">entrer l\'axe Y</string>
+    <string name="search">chercher</string>
+    <string name="coordinates">Coordonnées</string>
+    <string name="aboutus">à propos de nous</string>
 </resources>
