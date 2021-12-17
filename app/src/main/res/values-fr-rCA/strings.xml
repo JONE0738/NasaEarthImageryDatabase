@@ -11,4 +11,7 @@
     <string name="search">chercher</string>
     <string name="coordinates">Coordonnées</string>
     <string name="aboutus">à propos de nous</string>
+    <string name="jones">Andrew Jones</string>
+    <string name="barton">Andrew Barton</string>
+    <string name="tomain">Retour à l\'accueil</string>
 </resources>
