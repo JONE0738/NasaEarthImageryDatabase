@@ -3,9 +3,9 @@ package com.example.nasaearthimagerydatabase;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.view.MenuItem;
 import android.view.View;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
@@ -23,6 +23,11 @@ public class nav_coordinates extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nav_coordinates);
+
+
+
+        //    Search button for nav_coordinates.xml
+        Button btn = (Button)findViewById(R.id.search);
 
         drawerLayout = findViewById(R.id.my_drawer_layout_coordinates);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
@@ -61,5 +66,6 @@ public class nav_coordinates extends AppCompatActivity {
         // create and show the alert dialog
         AlertDialog dialog = builder.create();
         dialog.show();
+
     }
 }

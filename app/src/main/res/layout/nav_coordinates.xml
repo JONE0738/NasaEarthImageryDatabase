@@ -71,8 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_row="4"
             android:textAlignment="center"
-            android:text="@string/search"
-            tools:ignore="RtlCompat" />
+            android:text="@string/search" />
 
 
     </GridLayout>

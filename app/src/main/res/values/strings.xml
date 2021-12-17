@@ -10,4 +10,7 @@
     <string name="search">Search</string>
     <string name="coordinates">Enter coordinates</string>
     <string name="aboutus">About Us</string>
+    <string name="jones">Andrew Jones</string>
+    <string name="barton">Andrew Barton</string>
+    <string name="tomain">Back to main</string>
 </resources>
