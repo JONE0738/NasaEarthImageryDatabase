@@ -40,18 +40,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //make nav icon appear on action bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
+
         //initialize navigation view for handling nav menu onclicks
-        navigationView = findViewById(R.id.navigation);
-
-
-
+        navigationView = (NavigationView) findViewById(R.id.NavView);
+        navigationView.setNavigationItemSelectedListener(this);
     }
-            //naggers
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_about:
-                Toast.makeText(this, "test", Toast.LENGTH_LONG);
+            Intent intentAbout = new Intent(this, nav_about.class);
+            this.startActivity(intentAbout);
 
 
             case R.id.nav_favourites:
@@ -66,6 +67,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         return true;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //menu toggle on press
     @Override
