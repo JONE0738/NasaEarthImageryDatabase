@@ -11,8 +11,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-public class nav_favourites extends AppCompatActivity {
+import com.google.android.material.navigation.NavigationView;
 
+public class nav_favourites extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+    NavigationView navigationView;
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
 
@@ -30,6 +32,34 @@ public class nav_favourites extends AppCompatActivity {
 
         //make nav icon appear on action bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //initialize navigation view for handling nav menu onclicks
+        navigationView = (NavigationView) findViewById(R.id.navigation_favourites);
+        navigationView.setNavigationItemSelectedListener(this);
+    }
+
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.nav_about:
+                Intent intentAbout = new Intent(this, nav_about.class);
+                this.startActivity(intentAbout);
+                break;
+
+
+            case R.id.nav_favourites:
+                Intent intentFavourites = new Intent(this, nav_favourites.class);
+                this.startActivity(intentFavourites);
+                break;
+
+
+            case R.id.nav_coordinates:
+                Intent intentCoordinates = new Intent(this, nav_coordinates.class);
+                this.startActivity(intentCoordinates);
+                break;
+
+        }
+        return true;
     }
 
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

@@ -51,36 +51,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_about:
-            Intent intentAbout = new Intent(this, nav_about.class);
-            this.startActivity(intentAbout);
+                Intent intentAbout = new Intent(this, nav_about.class);
+                this.startActivity(intentAbout);
+                break;
 
 
             case R.id.nav_favourites:
                 Intent intentFavourites = new Intent(this, nav_favourites.class);
                 this.startActivity(intentFavourites);
+                break;
 
 
             case R.id.nav_coordinates:
                 Intent intentCoordinates = new Intent(this, nav_coordinates.class);
                 this.startActivity(intentCoordinates);
+                break;
 
         }
         return true;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     //menu toggle on press
     @Override
