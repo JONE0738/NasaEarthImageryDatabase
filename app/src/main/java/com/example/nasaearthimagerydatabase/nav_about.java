@@ -15,11 +15,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
 
-public class nav_about extends AppCompatActivity {
-
+public class nav_about extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+    NavigationView navigationView;
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
 
@@ -28,6 +29,9 @@ public class nav_about extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nav_about);
+        //initialize navigation view for handling nav menu onclicks
+        navigationView = (NavigationView) findViewById(R.id.navigation_about);
+        navigationView.setNavigationItemSelectedListener(this);
 
 
 
@@ -78,6 +82,30 @@ public class nav_about extends AppCompatActivity {
         //make nav icon appear on action bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.nav_about:
+                Intent intentAbout = new Intent(this, nav_about.class);
+                this.startActivity(intentAbout);
+                break;
+
+
+            case R.id.nav_favourites:
+                Intent intentFavourites = new Intent(this, nav_favourites.class);
+                this.startActivity(intentFavourites);
+                break;
+
+
+            case R.id.nav_coordinates:
+                Intent intentCoordinates = new Intent(this, nav_coordinates.class);
+                this.startActivity(intentCoordinates);
+                break;
+
+        }
+        return true;
+    }
+
 
 
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
