@@ -65,11 +65,19 @@
             android:inputType="numberDecimal"
             android:textSize="20dp" />
 
+        <ImageView
+            android:id="@+id/imgView"
+            android:layout_width="match_parent"
+            android:layout_height="505dp"
+            android:layout_row="3"
+
+             />
+
         <Button
             android:id="@+id/search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_row="4"
+            android:layout_row="3"
             android:textAlignment="center"
             android:text="@string/search" />
 

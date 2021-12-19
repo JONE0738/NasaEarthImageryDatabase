@@ -45,6 +45,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //initialize navigation view for handling nav menu onclicks
         navigationView = (NavigationView) findViewById(R.id.NavView);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+
+
     }
 
     @Override
@@ -90,6 +94,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             AlertDialog dialog = builder.create();
             dialog.show();
         }
+
 
 
 
