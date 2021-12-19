@@ -2,9 +2,15 @@ package com.example.nasaearthimagerydatabase;
 
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
@@ -14,9 +20,30 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
 
 public class nav_favourites extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+
+    private ListView listView;
+    private String imageNames[] = {
+            "EarthRise",
+            "Hubble shot",
+            "Venus"
+    };
+
+    private String imageDesc[] = {
+            "Famous picture from the Moon",
+            "Famous Hubble Telescope picture",
+            "Image of Venus"
+    };
+
+    private Integer imageid[] = {
+            R.drawable.earthrise,
+            R.drawable.hubble,
+            R.drawable.venus,
+    };
+
     NavigationView navigationView;
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +62,26 @@ public class nav_favourites extends AppCompatActivity implements NavigationView.
         //initialize navigation view for handling nav menu onclicks
         navigationView = (NavigationView) findViewById(R.id.navigation_favourites);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //setting header
+        TextView textView = new TextView(this);
+        textView.setTypeface(Typeface.DEFAULT_BOLD);
+        textView.setText("List of Nasa Images");
+
+        ListView listView=(ListView)findViewById(R.id.theList);
+        listView.addHeaderView(textView);
+
+        //populating list data
+        NasaImageList nasaImageList = new NasaImageList(this, imageNames, imageDesc, imageid);
+        listView.setAdapter(nasaImageList);
+        //image onclick listener with toast for details
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Toast.makeText(getApplicationContext(), "Image 1: " + imageNames[position] + ", taken aboard Apollo 8 by Bill Anders, this shows Earth peeking out from beyond the lunar surface.", Toast.LENGTH_LONG).show();
+            }
+        });
+
     }
 
         //method to handle menu item selection
@@ -72,13 +119,13 @@ public class nav_favourites extends AppCompatActivity implements NavigationView.
 
 
     public void favouritesHelpDialog(View view) {
-        // setup the alert builder
+        //setup the alert builder
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Help menu:");
         builder.setMessage("Welcome to the Favourites page. When you save an image as a favourite, it will show up here. Click the image to see additional details.");
-        // add a button
+        //add a button
         builder.setPositiveButton("OK", null);
-        // create and show the alert dialog
+        //create and show the alert dialog
         AlertDialog dialog = builder.create();
         dialog.show();
     }

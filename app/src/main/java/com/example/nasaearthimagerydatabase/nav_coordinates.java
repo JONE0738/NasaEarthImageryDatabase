@@ -8,7 +8,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.telephony.mbms.DownloadProgressListener;
 import android.widget.Button;
 import android.view.MenuItem;
 import android.view.View;
@@ -35,8 +34,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class nav_coordinates extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     NavigationView navigationView;
@@ -49,8 +46,8 @@ public class nav_coordinates extends AppCompatActivity implements NavigationView
     Button btn;
     String strUrl;
     ImageView imageView;
-    ProgressBar pb;
-    int counter = 0;
+    ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +75,7 @@ public class nav_coordinates extends AppCompatActivity implements NavigationView
 
 
 
+
         num1 = (EditText) findViewById(R.id.xaxis);
         num2 = (EditText) findViewById(R.id.yaxis);
 
@@ -85,9 +83,11 @@ public class nav_coordinates extends AppCompatActivity implements NavigationView
         imageView = (ImageView) findViewById(R.id.imgView);
         btn.setOnClickListener(new View.OnClickListener() {
 
-            // initializing variables for imagedownload
+
             @Override
             public void onClick(View view) {
+            //    DownloadTask = downloadTask = new DownloadTask();
+
 
                 int i = Integer.parseInt(num1.getText().toString());
                 int j = Integer.parseInt(num2.getText().toString());
@@ -96,18 +96,14 @@ public class nav_coordinates extends AppCompatActivity implements NavigationView
 
 
             }
-
-
         });
     }
 
         private class ImageDownloader extends AsyncTask<String, Void, Bitmap> {
-            ProgressDialog progressDialog;
             HttpURLConnection httpURLConnection;
 
             @Override
             protected Bitmap doInBackground(String... strings) {
-
                 try {
                     URL url = new URL(strings[0]);
                     httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -131,8 +127,6 @@ public class nav_coordinates extends AppCompatActivity implements NavigationView
                 if (bitmap != null) {
                     imageView.setImageBitmap(bitmap);
                     Toast.makeText(getApplication(), "Download Successful", Toast.LENGTH_SHORT).show();
-                    progressDialog.setProgress(100);
-                    progressDialog.hide();
                 } else{
                     Toast.makeText(getApplication(), "Invalid Coordinates", Toast.LENGTH_SHORT).show();
                 }
@@ -140,21 +134,9 @@ public class nav_coordinates extends AppCompatActivity implements NavigationView
 
             @Override
             protected void onProgressUpdate(Void... values) {
-
-            }
-
-            @Override
-            protected void onPreExecute() {
-                progressDialog = new ProgressDialog(nav_coordinates.this);
-                progressDialog.setTitle("Downloading...");
-                progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-                progressDialog.setMax(100);
-                progressDialog.setProgress(5);
-                progressDialog.show();
-
+                super.onProgressUpdate(values);
             }
         }
-
 
 
     @Override
