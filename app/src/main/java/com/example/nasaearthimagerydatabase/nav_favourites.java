@@ -19,6 +19,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
+
 public class nav_favourites extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private ListView listView;
@@ -35,6 +36,7 @@ public class nav_favourites extends AppCompatActivity implements NavigationView.
     };
 
     private Integer imageid[] = {
+            R.drawable.earthrise,
             R.drawable.earthrise,
             R.drawable.hubble,
             R.drawable.venus,

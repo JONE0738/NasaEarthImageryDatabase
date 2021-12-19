@@ -46,7 +46,7 @@ public class nav_coordinates extends AppCompatActivity implements NavigationView
     Button btn;
     String strUrl;
     ImageView imageView;
-    ProgressBar progressBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +74,7 @@ public class nav_coordinates extends AppCompatActivity implements NavigationView
 
 
 
-
+        //input variables from user to select coordinates
 
         num1 = (EditText) findViewById(R.id.xaxis);
         num2 = (EditText) findViewById(R.id.yaxis);
@@ -83,11 +83,9 @@ public class nav_coordinates extends AppCompatActivity implements NavigationView
         imageView = (ImageView) findViewById(R.id.imgView);
         btn.setOnClickListener(new View.OnClickListener() {
 
-
+            //
             @Override
             public void onClick(View view) {
-            //    DownloadTask = downloadTask = new DownloadTask();
-
 
                 int i = Integer.parseInt(num1.getText().toString());
                 int j = Integer.parseInt(num2.getText().toString());
@@ -98,10 +96,10 @@ public class nav_coordinates extends AppCompatActivity implements NavigationView
             }
         });
     }
-
+        // Asynk for image download
         private class ImageDownloader extends AsyncTask<String, Void, Bitmap> {
             HttpURLConnection httpURLConnection;
-
+            ProgressDialog progressDialog;
             @Override
             protected Bitmap doInBackground(String... strings) {
                 try {
@@ -121,15 +119,29 @@ public class nav_coordinates extends AppCompatActivity implements NavigationView
                 }
                 return null;
             }
+            // Progress bar on execute
+            @Override
+            protected void onPreExecute() {
+                 progressDialog = new ProgressDialog(nav_coordinates.this);
+                 progressDialog.setTitle("Downloading...");
+                 progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+                 progressDialog.setMax(100);
+                 progressDialog.setProgress(5);
+                 progressDialog.show();
 
+            }
+            // toast showing if images was downlaoded successfully
             @Override
             protected void onPostExecute(Bitmap bitmap) {
                 if (bitmap != null) {
                     imageView.setImageBitmap(bitmap);
                     Toast.makeText(getApplication(), "Download Successful", Toast.LENGTH_SHORT).show();
+                    progressDialog.hide();
                 } else{
                     Toast.makeText(getApplication(), "Invalid Coordinates", Toast.LENGTH_SHORT).show();
                 }
+
+
             }
 
             @Override
