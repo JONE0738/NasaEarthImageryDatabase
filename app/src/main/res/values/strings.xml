@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Nasa Earth Imagery Database V 0.1</string>
+    <string name="app_name">Nasa Earth Imagery Database V1</string>
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
     <string name="findimage">Find Image</string>
@@ -13,4 +13,5 @@
     <string name="jones">Andrew Jones</string>
     <string name="barton">Andrew Barton</string>
     <string name="tomain">Back to main</string>
+    <string name="nasa_image_goes_here">Nasa image goes here</string>
 </resources>

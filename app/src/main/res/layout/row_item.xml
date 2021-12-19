@@ -10,14 +10,15 @@
         android:scaleType="fitXY"
         android:id="@+id/imageViewNasa"
         android:layout_row="0"
-        android:layout_column="0" />
+        android:layout_column="0"
+        android:contentDescription="@string/nasa_image_goes_here" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_columnWeight="1"
-        android:layout_marginLeft="10dp"
-        android:textSize="30dp"
+        android:layout_marginStart="10dp"
+        android:textSize="30sp"
         android:id="@+id/textViewImageName"
         android:layout_row="0"
         android:layout_column="1" />
@@ -26,8 +27,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_columnWeight="1"
-        android:layout_marginLeft="10dp"
-        android:textSize="20dp"
+        android:layout_marginStart="10dp"
+        android:textSize="20sp"
         android:id="@+id/textViewImageDesc"
         android:layout_row="1"
         android:layout_column="1" />

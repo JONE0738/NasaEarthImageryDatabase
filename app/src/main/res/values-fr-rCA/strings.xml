@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Base de données d\'imagerie terrestre de la NASA V 0.1</string>
+    <string name="app_name">Base de données d\'imagerie terrestre de la NASA V1</string>
     <string name="nav_open">Ouvert</string>
     <string name="nav_close">Fermer</string>
     <string name="findimage">Trouver une image</string>
@@ -14,4 +14,5 @@
     <string name="jones">Andrew Jones</string>
     <string name="barton">Andrew Barton</string>
     <string name="tomain">Retour à l\'accueil</string>
+    <string name="nasa_image_goes_here">l\'image de la nasa va ici</string>
 </resources>

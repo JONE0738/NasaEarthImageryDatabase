@@ -1,16 +1,13 @@
 package com.example.nasaearthimagerydatabase;
 
-
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
@@ -20,21 +17,20 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
 
 public class nav_favourites extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
-
-    private ListView listView;
-    private String imageNames[] = {
+    //array variables - did not end up initializing toast for image details due to time constraints
+    private final String[] imageNames = {
             "EarthRise",
             "Hubble shot",
             "Venus"
     };
 
-    private String imageDesc[] = {
+    private final String[] imageDesc = {
             "Famous picture from the Moon",
             "Famous Hubble Telescope picture",
             "Image of Venus"
     };
 
-    private Integer imageid[] = {
+    private final Integer[] imageid = {
             R.drawable.earthrise,
             R.drawable.hubble,
             R.drawable.venus,
@@ -45,6 +41,7 @@ public class nav_favourites extends AppCompatActivity implements NavigationView.
     public ActionBarDrawerToggle actionBarDrawerToggle;
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +57,7 @@ public class nav_favourites extends AppCompatActivity implements NavigationView.
         //make nav icon appear on action bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //initialize navigation view for handling nav menu onclicks
-        navigationView = (NavigationView) findViewById(R.id.navigation_favourites);
+        navigationView = findViewById(R.id.navigation_favourites);
         navigationView.setNavigationItemSelectedListener(this);
 
         //setting header
@@ -68,23 +65,17 @@ public class nav_favourites extends AppCompatActivity implements NavigationView.
         textView.setTypeface(Typeface.DEFAULT_BOLD);
         textView.setText("List of Nasa Images");
 
-        ListView listView=(ListView)findViewById(R.id.theList);
+        ListView listView= findViewById(R.id.theList);
         listView.addHeaderView(textView);
 
         //populating list data
         NasaImageList nasaImageList = new NasaImageList(this, imageNames, imageDesc, imageid);
         listView.setAdapter(nasaImageList);
-        //image onclick listener with toast for details
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Toast.makeText(getApplicationContext(), "Image 1: " + imageNames[position] + ", taken aboard Apollo 8 by Bill Anders, this shows Earth peeking out from beyond the lunar surface.", Toast.LENGTH_LONG).show();
-            }
-        });
 
     }
 
         //method to handle menu item selection
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {

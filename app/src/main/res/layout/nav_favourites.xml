@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/favourites"
                 android:textAlignment="center"
-                android:textSize="50dp">
+                android:textSize="50sp">
 
             </TextView>
 
@@ -39,9 +39,10 @@
             android:id="@+id/about_favourites"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginLeft="349dp"
+            android:layout_marginStart="349dp"
             android:onClick="favouritesHelpDialog"
-            android:background="@drawable/question"/>
+            android:background="@drawable/question"
+            android:contentDescription="shows help alertDialog" />
 
         <ListView
             android:id="@+id/theList"

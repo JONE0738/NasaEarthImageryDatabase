@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/aboutus"
                 android:textAlignment="center"
-                android:textSize="50dp"></TextView>
+                android:textSize="50sp" />
 
 
         </com.google.android.material.appbar.AppBarLayout>
@@ -39,9 +39,10 @@
             android:id="@+id/about_help"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_marginLeft="363dp"
+            android:layout_marginStart="363dp"
             android:background="@drawable/question"
-            android:onClick="aboutHelpDialog" />
+            android:onClick="aboutHelpDialog"
+            android:contentDescription="provides help alertDialog" />
 
         <Button
             android:id="@+id/jones"

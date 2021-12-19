@@ -38,7 +38,8 @@
                     android:layout_height="60dp"
                     android:layout_row="0"
                     android:layout_column="0"
-                    android:background="@drawable/ic_baseline_coordinates"/>
+                    android:background="@drawable/ic_baseline_coordinates"
+                    android:contentDescription="Goes to coordinates page" />
 
 
 
@@ -51,7 +52,8 @@
                 android:layout_height="60dp"
                 android:layout_row="0"
                 android:layout_column="0"
-                android:background="@drawable/ic_baseline_favorite"/>
+                android:background="@drawable/ic_baseline_favorite"
+                android:contentDescription="Goes to Favourites page" />
                 <ImageButton
                     android:id="@+id/toolbarAbout"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -61,7 +63,8 @@
                     android:layout_height="60dp"
                     android:layout_row="0"
                     android:layout_column="0"
-                    android:background="@drawable/ic_baseline_about"/>
+                    android:background="@drawable/ic_baseline_about"
+                    android:contentDescription="Goes to About page" />
 
             <ImageButton
                 android:id="@+id/main_help"
@@ -72,7 +75,7 @@
                 android:layout_height="60dp"
                 android:layout_row="0"
                 android:layout_column="0"
-                android:layout_marginLeft="170dp"
+                android:layout_marginStart="170dp"
                 android:background="@drawable/question"
                 android:contentDescription="help"
                 android:onClick="mainHelpDialog" />
@@ -80,7 +83,10 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.appbar.AppBarLayout>
-
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/nasalogo"/>
 
 
     </GridLayout>
