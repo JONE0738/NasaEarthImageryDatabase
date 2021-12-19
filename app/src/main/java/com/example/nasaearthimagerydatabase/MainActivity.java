@@ -44,6 +44,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //initialize navigation view for handling nav menu onclicks
         navigationView = (NavigationView) findViewById(R.id.NavView);
         navigationView.setNavigationItemSelectedListener(this);
+ version_2
+
+
+
+
+
         //code for toolbar buttons onclick
         ImageButton buttonCoordinates = (ImageButton) findViewById(R.id.toolbarCoordinates);
         buttonCoordinates.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intentAbout);
             }
         });
+      
     }
 
 
@@ -121,6 +128,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 }
 
+
+
+
+
+}
 
 
 

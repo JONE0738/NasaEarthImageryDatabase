@@ -1,11 +1,21 @@
 package com.example.nasaearthimagerydatabase;
 
 
+import android.app.DownloadManager;
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.Button;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
@@ -14,10 +24,29 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+
 public class nav_coordinates extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     NavigationView navigationView;
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
+
+
+
+    EditText num1, num2;
+    Button btn;
+    String strUrl;
+    ImageView imageView;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +70,81 @@ public class nav_coordinates extends AppCompatActivity implements NavigationView
         //initialize navigation view for handling nav menu onclicks
         navigationView = (NavigationView) findViewById(R.id.navigation_coordinates);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+
+
+
+
+        num1 = (EditText) findViewById(R.id.xaxis);
+        num2 = (EditText) findViewById(R.id.yaxis);
+
+        btn = (Button) findViewById(R.id.search);
+        imageView = (ImageView) findViewById(R.id.imgView);
+        btn.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+            public void onClick(View view) {
+            //    DownloadTask = downloadTask = new DownloadTask();
+
+
+                int i = Integer.parseInt(num1.getText().toString());
+                int j = Integer.parseInt(num2.getText().toString());
+                strUrl = "https://api.nasa.gov/planetary/earth/imagery?lon=" + i + "&lat=" + j  +"&date=2014-02-01&api_key=fEABokEsfpfxGol138RGYI97Vi6G48t0lvdmKsku";
+                new ImageDownloader().execute(strUrl);
+
+
+            }
+        });
     }
+
+        private class ImageDownloader extends AsyncTask<String, Void, Bitmap> {
+            HttpURLConnection httpURLConnection;
+
+            @Override
+            protected Bitmap doInBackground(String... strings) {
+                try {
+                    URL url = new URL(strings[0]);
+                    httpURLConnection = (HttpURLConnection) url.openConnection();
+                    InputStream inputStream = new BufferedInputStream(httpURLConnection.getInputStream());
+                    Bitmap image = BitmapFactory.decodeStream(inputStream);
+                    return image;
+
+
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }finally {
+                    httpURLConnection.disconnect();
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Bitmap bitmap) {
+                if (bitmap != null) {
+                    imageView.setImageBitmap(bitmap);
+                    Toast.makeText(getApplication(), "Download Successful", Toast.LENGTH_SHORT).show();
+                } else{
+                    Toast.makeText(getApplication(), "Invalid Coordinates", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            protected void onProgressUpdate(Void... values) {
+                super.onProgressUpdate(values);
+            }
+        }
+
+
+
+
+
+
+
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
