@@ -9,7 +9,7 @@
     tools:context=".MainActivity"
     tools:ignore="HardcodedText">
 
-    <LinearLayout
+    <GridLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -24,17 +24,66 @@
             app2:contentInsetRight="0dp"
             app2:contentInsetStart="0dp">
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <ImageButton
+                    android:id="@+id/toolbarCoordinates"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:background="@drawable/ic_baseline_coordinates"/>
+
+
+
             <ImageButton
-                android:id="@+id/main_help"
+                android:id="@+id/toolbarFavourites"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/toolbarCoordinates"
+                app:layout_constraintTop_toTopOf="parent"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginLeft="349dp"
-                android:onClick="mainHelpDialog"
-                android:background="@drawable/question"/>
+                android:layout_row="0"
+                android:layout_column="0"
+                android:background="@drawable/ic_baseline_favorite"/>
+                <ImageButton
+                    android:id="@+id/toolbarAbout"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/toolbarFavourites"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:background="@drawable/ic_baseline_about"/>
+
+            <ImageButton
+                android:id="@+id/main_help"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/toolbarAbout"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:layout_marginLeft="170dp"
+                android:background="@drawable/question"
+                android:contentDescription="help"
+                android:onClick="mainHelpDialog" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.appbar.AppBarLayout>
 
-    </LinearLayout>
+
+
+    </GridLayout>
 
 
     <com.google.android.material.navigation.NavigationView
@@ -43,6 +92,8 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:menu="@menu/nav_menu" />
+
+
 
 </androidx.drawerlayout.widget.DrawerLayout>
 
