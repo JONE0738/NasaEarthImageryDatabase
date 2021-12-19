@@ -139,13 +139,6 @@ public class nav_coordinates extends AppCompatActivity implements NavigationView
         }
 
 
-
-
-
-
-
-
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {

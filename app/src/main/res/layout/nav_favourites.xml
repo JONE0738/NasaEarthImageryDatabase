@@ -42,10 +42,12 @@
             android:layout_marginLeft="349dp"
             android:onClick="favouritesHelpDialog"
             android:background="@drawable/question"/>
-    <ListView
-        android:id="@+id/fav_list_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+
+        <ListView
+            android:id="@+id/theList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
 
     </LinearLayout>
 
